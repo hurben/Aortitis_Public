@@ -1,7 +1,7 @@
 # Global Transcriptomic Profiling of Aortic Aneurysms
 
 **Title**: Global Transcriptomic Profiling Identifies Differential Gene Expression Signatures between Inflammatory and Non-inflammatory Aortic Aneurysms  
-**DOI**: TBD  
+**DOI**: DOI: 10.1002/art.42138  
 **Authors**: Benjamin Hur, Matthew J. Koster, Jin Sung Jang, Cornelia M. Weyand, Kenneth J. Warrington, and Jaeyun Sung  
 **Contact**: hur.benjamin@mayo.edu  
 **Corresponding Author**: sung.jaeyun@mayo.edu  
