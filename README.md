@@ -1,57 +1,74 @@
-Global Transcriptomic Profiling Identifies Differential Gene expression Signatures between Inflammatory and Non-inflammatory Aortic Aneurysms
-=========================
+# Global Transcriptomic Profiling of Aortic Aneurysms
 
-DOI : TBD
+**Title**: Global Transcriptomic Profiling Identifies Differential Gene Expression Signatures between Inflammatory and Non-inflammatory Aortic Aneurysms  
+**DOI**: TBD  
+**Authors**: Benjamin Hur, Matthew J. Koster, Jin Sung Jang, Cornelia M. Weyand, Kenneth J. Warrington, and Jaeyun Sung  
+**Contact**: hur.benjamin@mayo.edu  
+**Corresponding Author**: sung.jaeyun@mayo.edu  
 
-Benjamin Hur, Matthew J. Koster, Jin Sung Jang, Cornelia M. Weyand, Kenneth J. Warrington, and Jaeyun Sung
+---
 
-Contact: hur.benjamin@mayo.edu
-Corresponding Author : sung.jaeyun@mayo.edu
+## Overview
 
-## Analysis associated to inflammatory vs. non-inflammatory aortic aneurysms.
+This repository contains the analysis pipeline and associated resources used in the transcriptomic profiling of **inflammatory vs. non-inflammatory aortic aneurysms**.
 
+Key components:
+- Differential gene expression (DEG) analysis
+- Gene set enrichment
+- Pharmacogenomic network construction
+- PCA and confounding factor analysis
+- FASTQ trimming and alignment
 
-#### Differentially expressed genes and volcano plot
+---
 
->analysis_with3Meta/gene_set/01_run_deseq_multi_level.sh
+## 🔬 Differential Expression & Gene Set Analysis
 
->analysis_with3Meta/gene_set/02_geneset.sh
+Location: `analysis_with3Meta/gene_set/`
 
->analysis_with3Meta/gene_set/03_draw_vocano.sh
+- `01_run_deseq_multi_level.sh` – Run DESeq2 for DEG analysis  
+- `02_geneset.sh` – Gene set enrichment analysis  
+- `03_draw_vocano.sh` – Generate volcano plots  
 
-Note: DESeq2 (v1.26.0) was used during the analysis. Please note that we identified different DEG results compared to (v1.30)
+> **Note**: DESeq2 v1.26.0 was used. DEG results may differ from newer versions (e.g., v1.30+).
 
-#### Pharmacogenomic network construction
+---
 
->analysis_with3Meta/network/01_run.sh
+## 🧬 Pharmacogenomic Network Construction
 
->analysis_with3Meta/network/02_parse_subnetwork.sh
+Location: `analysis_with3Meta/network/`
 
->analysis_with3Meta/network/03_create_pharmacogenomic_network.sh
+- `01_run.sh` – Initialize network generation  
+- `02_parse_subnetwork.sh` – Extract subnetworks  
+- `03_create_pharmacogenomic_network.sh` – Build final network
 
-#### Others
+---
 
-PCA
->src/statistics/PCA_whole_data.ipynb
+## 📊 Additional Analyses
 
-Identification of confounding effects
->src/statistics/linear_model_variable_significance.ipynb
+- **PCA**  
+  `src/statistics/PCA_whole_data.ipynb`
 
-Pie chart for PANTHER results
->src/statistics/panther_pie_chart.ipynb
+- **Confounding Variable Assessment**  
+  `src/statistics/linear_model_variable_significance.ipynb`
 
-trimming the fastq files and alignment
->/Users/m221138/Aortitis_Public/preprocess/01_trim_rawdata.sh
->/Users/m221138/Aortitis_Public/preprocess/02_run_alignmnet.sh
+- **PANTHER Pie Chart Visualization**  
+  `src/statistics/panther_pie_chart.ipynb`
 
-#### Data
+---
 
-Read counts of 50 samples and 26,475 genes with STAR alignment
+## 🧪 Data Preprocessing (FASTQ → Alignment)
 
->data/aortitis.tsv
+Location: `/Users/m221138/Aortitis_Public/preprocess/`
 
-log2 transformed TPM values of 50 samples and 26,475 genes with RSEM
+- `01_trim_rawdata.sh` – Adapter trimming  
+- `02_run_alignmnet.sh` – STAR alignment  
 
->data/tpm_profile.log2.tsv
+---
 
-Raw data (.fastq) files are available upon request.
+## 📁 Data Files
+
+- `data/aortitis.tsv` – Raw read counts (50 samples × 26,475 genes, STAR)  
+- `data/tpm_profile.log2.tsv` – Log2-transformed TPM (50 samples × 26,475 genes, RSEM)  
+
+> **Note**: Raw `.fastq` files are available upon request.
+
